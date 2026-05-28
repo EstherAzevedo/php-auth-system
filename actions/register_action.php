@@ -36,6 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         die("Este email já está cadastrado.");
     }
 
+    $senhaHash = password_hash(
+        $senha,
+        PASSWORD_DEFAULT
+    );
+
     }
 
 ?>
