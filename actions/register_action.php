@@ -41,6 +41,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         PASSWORD_DEFAULT
     );
 
+    $stmt = $mysqli->prepare(
+        "INSERT INTO usuario
+        (nome, email, senha)
+        VALUES (?, ?, ?)"
+    );
+
+    $stmt->bind_param(
+        "sss",
+        $nome,
+        $email,
+        $senhaHash
+    );
+
+    if ($stmt->execute()) {
+        header(
+            "Location: ../pages/login.php"
+        );
+
+        exit();
+
+    } else {
+
+        echo "Erro ao cadastrar usuário.";
+
     }
+}
 
 ?>
