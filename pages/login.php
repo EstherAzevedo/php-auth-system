@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // O objeto $mysqli agora já está instanciado e pronto para uso
     $stmt = $mysqli->prepare(
-        "SELECT codigo, email, senha
+        "SELECT id, email, senha
          FROM usuario
          WHERE email = ?"
     );

@@ -23,11 +23,11 @@
             </div>
             <div>
                 <label>Senha</label>
-                <input type="password" name="password" required>
+                <input type="password" name="senha" required>
             </div>
             <div>
                 <label>Confirmar Senha</label>
-                <input type="password" name="password" required>
+                <input type="password" name="confirmar_senha" required>
             </div>
 
             <button type="submit">Cadastrar</button>
