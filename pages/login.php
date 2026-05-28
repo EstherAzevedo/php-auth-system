@@ -46,23 +46,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
-<h1>Tela de Login</h1>
+<div class="container-login">
+    <h1>Tela de Login</h1>
 
 <form method="POST">
-    <p>
+    <div>
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required>
-    </p>
-    <p>
+    </div>
+    <div>
         <label for="password">Senha</label>
         <input type="password" id="password" name="password" required>
-    </p>
+    </div>
     <button type="submit">Entrar</button>
 </form>
+</div>
 
 </body>
 </html>
