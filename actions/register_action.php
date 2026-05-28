@@ -21,6 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         die("As senhas não coincidem.");
     }
 
+    $stmt = $mysqli->prepare(
+        "SELECT id
+        FROM usuario
+        WHERE email = ?"
+    );
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows > 0) {
+        die("Este email já está cadastrado.");
+    }
+
     }
 
 ?>
