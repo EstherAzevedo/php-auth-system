@@ -62,7 +62,7 @@ $_SESSION['user_id'] = $usuario['id'];
 $_SESSION['user_name'] = $usuario['nome'];
 $_SESSION['user_email'] = $usuario['email'];
 
-header("Location: ../index.php");
+header("Location: ../pages/dashboard.php");
 exit();    
 
 ?>
