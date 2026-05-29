@@ -106,3 +106,17 @@ p {
     text-decoration: underline;
 }
 
+.container-dashboard {
+    width: min(600px, 100%);
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.container-dashboard h1 {
+    color: #4f46e5;
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
+}
+
