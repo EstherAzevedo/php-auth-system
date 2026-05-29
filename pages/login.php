@@ -1,45 +1,5 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-include("../config/database.php");
-/**$_SERVER é um array superglobal do PHP.
-Ele contém informações sobre a requisição atual, 
-servidor, navegador do usuário etc. 
-
-["REQUEST_METHOD"] == "POST"
-Ela informa qual método HTTP foi 
-utilizado para acessar a página.*/
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $senha = $_POST["password"];
-
-    // O objeto $mysqli agora já está instanciado e pronto para uso
-    $stmt = $mysqli->prepare(
-        "SELECT id, email, senha
-         FROM usuario
-         WHERE email = ?"
-    );
-
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-
-    $resultado = $stmt->get_result();
-
-    if ($resultado->num_rows === 1) {
-        $usuario = $resultado->fetch_assoc();
-
-        if (password_verify($senha, $usuario['senha'])) {
-            echo "Login realizado com sucesso!";
-        } else {
-            echo "Senha incorreta!";
-        }
-    } else {
-        echo "Usuário não encontrado!";
-    }
-    
-}
+<?php 
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -53,9 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <div class="container-login">
+
     <h1>Tela de Login</h1>
 
-<form method="POST">
+    <?php if (isset($_SESSION['erro'])): ?>
+
+        <p class="erro">
+            <?= $_SESSION['erro']; ?>
+        </p>
+
+        <?php unset($_SESSION['erro']); ?>
+
+    <?php endif; ?>
+
+<form method="POST" action="../actions/login_action.php">
     <div>
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required>
