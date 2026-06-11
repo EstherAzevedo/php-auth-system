@@ -98,6 +98,12 @@ p {
 .container-register a,
 .container-login a {
     color: #4f46e5;
+}
+
+.feedback-erro {
+    color: #dc2626;
+    font-size: 0.875rem;
+    font-weight: 500;
     text-decoration: none;
 }
 
@@ -120,3 +126,32 @@ p {
     font-size: clamp(2rem, 2.5vw, 2.5rem);
 }
 
+.error-message {
+    display: block;
+    margin-top: 4px;
+    color: red;
+    font-size: 0.9rem;
+}
+
+#nome-feedback,
+#email-feedback,
+#senha-feedback,
+#confirmar-feedback {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+#nome-feedback.feedback-erro,
+#email-feedback.feedback-erro,
+#senha-feedback.feedback-erro,
+#confirmar-feedback.feedback-erro {
+    color: #dc2626 !important;
+    font-weight: 500;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
