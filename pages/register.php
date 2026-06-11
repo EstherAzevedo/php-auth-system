@@ -109,7 +109,8 @@ unset($_SESSION['old']);
 
         </form>
     </div>
-    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/validators.js"></script>
+    <script src="../assets/js/register.js"></script>
 </body>
 
 </html>
